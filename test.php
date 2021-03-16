@@ -204,6 +204,39 @@
     }
 
     for($i = 0; $i < 10; $i++){
-        echo $i;
+        echo "<br>".$i;
+    }
+
+    echo "<br>";
+
+    $x = 9;
+    for($i = 1; $i < 11; $i++){
+        echo $x*$i." ";
+    }
+    echo "<br>";
+    for($x = 1; $x < 11; $x++){
+        for($i = 1; $i < 11; $i++){
+            echo $x*$i." ";
+        }
+        echo "<br>";
+    }
+    // Solution de Hayet
+    // $i = 1;
+    // do {
+    // for ($x = 1; $x <= 10 ; $x++) {
+    //     echo $x*$i . "<br>";
+    // }
+    // $i++ ;
+    // } while ($i <= 10)
+
+    for($i = 1; $i < 101; $i++){
+        echo "$i ";
+        if($i%3 == 0){
+            echo "Fizz";
+        }
+        if($i%5 == 0){
+            echo "Buzz";
+        }
+        echo "<br>";
     }
 ?>
