@@ -198,7 +198,12 @@
     $y = 0;
     while($y <= 20){
         $x = $y**2 + $x;
+        // $x += $y**2; existe
         echo "<br>Itération $y".") Valeur de \$x : $x";
         $y++;
+    }
+
+    for($i = 0; $i < 10; $i++){
+        echo $i;
     }
 ?>
