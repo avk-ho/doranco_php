@@ -280,13 +280,15 @@
     function factoriel($n){
         if($n == 0){
             echo "1";
+            return 1;
         }
         else{
             $x = 1;
             for($i = 1; $i <= $n; $i++){
                 $x = $x*$i;
             }
-            echo "$x";
+            // echo "$x";
+            return $x;
         }
     }
     //méthode avancée, recursion de la fonction
@@ -298,5 +300,127 @@
     //         return ($n*fact($n-1));
     //     }
     // }
-    factoriel(6);
+    factoriel(1);
+
+    echo "<br><br>";
+
+    function switchVar(&$var1, &$var2){
+        $x = $var1;
+        $var1 = $var2;
+        $var2 = $x;
+    }
+
+    $x = 1;
+    $y = 0;
+    echo "Var 1 : $x et Var 2 : $y<br>";
+    switchVar($x, $y);
+    echo "Var 1 : $x et Var 2 : $y<br>";
+
+    // factoriel p / (factoriel q * factoriel(p - q))
+    function coefBinom($a, $b){
+        return factoriel($a)/(factoriel($b)*factoriel($a-$b));
+    }
+    $a = 3;
+    $b = 1;
+    coefBinom($a, $b);
+    function triPasc($x){
+        for($i = 1; $i <= $x; $i++){
+            
+            
+        }
+    }
+
+    //Pour faire un triangle de Pascal par Nadir
+    // function facto($number) { 
+
+    //     if ($number < 2) { 
+    //         return 1; 
+    //     } else { 
+    //         return ($number * facto($number-1)); 
+    //     } 
+    // }
+    
+    // function binomialCoeff($q,$p)
+    // {
+    //     return facto($p)/(facto($q)*facto($p-$q));
+    // }
+    
+    // function affichePascal($n) 
+    // { 
+    
+    //     for ($line = 0; $line < $n; $line++) 
+    //     { 
+    
+    //         for ($i = 0; $i <= $line; $i++) 
+    //                 echo "".binomialCoeff($line, $i)." "; 
+                      
+    //         echo "\n"; 
+    //     } 
+    // }
+    echo "<br>";
+    function diviseStr($str){
+        $x = "";
+        for($i = 0; $i < strlen($str);$i+=2){
+            $x = $x.substr($str, $i, 2).":";
+        }
+        $y = substr($x, 0, strlen($x)-1);
+        echo "<br>$y";
+    }
+    diviseStr("082307");
+
+    echo "<br>";
+    function convertToStr(&$x){
+        $x = (string) $x;
+        return $x;
+    }
+    $test = 5;
+    echo gettype(convertToStr($test));
+    echo "<br>";
+    //- Écrivez un script PHP pour extraire le nom de fichier de la chaîne suivante. 
+    // Exemple de chaîne : 'www.example.com/public_html/index.php'
+    //Résultat attendu : 'index.php’
+    function findFileName($str){
+        $posSlash = 0;
+        for($i=0;$i<strlen($str);$i++){
+            if(substr($str, $i, 1) == "/"){
+                $posSlash = $i;
+            };
+        }
+        $fileName = substr($str, $posSlash+1, strlen($str)-$posSlash);
+        echo "<br>$fileName";
+    }
+    findFileName('www.example.com/public_html/index.php');
+
+    echo "<br>";
+    //     - Rédigez un script PHP pour extraire le nom d'utilisateur de l'ID d'e-mail suivant. Allez dans l'éditeur
+    // Exemple de chaîne : ' rayy@example.com '
+    // Résultat attendu : 'rayy’
+
+    function recupUser($str){
+        $posAt = 0;
+        for($i=0;$i<strlen($str);$i++){
+            if(substr($str, $i, 1) == "@"){
+                $posAt = $i;
+            };
+        }
+        $user = substr($str, 0, $posAt);
+        echo "<br>$user";
+    }
+    recupUser("rayy@example.com");
+
+    echo "<br><br>";
+    //- Ecrivez un script PHP pour supprimer tous les zéros non significatifs d'une chaîne. 
+    // Chaîne d'origine : '000547023.24'
+    // Résultat attendu : '547023.24'
+    function strip0($str){
+        $i = 0;
+        while(substr($str, $i, 1) == "0"){
+            $i++;
+        }
+        // echo "$i<br>";
+        $n = substr($str, $i, strlen($str)-$i);
+        echo "$n";
+    }
+    strip0('000547023.24');
+
 ?>
