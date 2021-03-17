@@ -187,13 +187,15 @@
             echo "<br>Date valide.";
         }
     }
-
+    echo "<br>";
+    echo "<br>";
+    //Exemple de loop while (vraiment une loop for)
     $i = 1;
     while($i < 6){
         echo $i;
         $i++;
     }
-
+    echo "<br>";
     $x = 0;
     $y = 0;
     while($y <= 20){
@@ -203,10 +205,13 @@
         $y++;
     }
 
+    echo "<br>";
+
     for($i = 0; $i < 10; $i++){
         echo "<br>".$i;
     }
 
+    echo "<br>";
     echo "<br>";
 
     $x = 9;
@@ -220,6 +225,7 @@
         }
         echo "<br>";
     }
+    echo "<br>";
     // Solution de Hayet
     // $i = 1;
     // do {
@@ -239,4 +245,58 @@
         }
         echo "<br>";
     }
+
+    echo "<br>";
+
+    //Travail sur les fonctions
+    function fiftyone_by_26(){
+        $x = 51*26;
+        echo "$x";
+    }
+    fiftyone_by_26();
+
+    echo "<br><br>";
+
+    function mult($n1, $n2){
+        $x = $n1*$n2;
+        echo "$x";
+    }
+    mult(15, 26);
+    echo "<br><br>";
+
+    //V1 compliquée
+    // function factoriel($n){
+    //     if($n == 0){
+    //         echo "1";
+    //     }
+    //     else{
+    //         $x = $n;
+    //         for($i = 1; $i < $n; $i++){
+    //           $x = $x*($n-$i);
+    //         }
+    //         echo "$x";
+    //     }
+    // }
+    function factoriel($n){
+        if($n == 0){
+            echo "1";
+        }
+        else{
+            $x = 1;
+            for($i = 1; $i <= $n; $i++){
+                $x = $x*$i;
+            }
+            echo "$x";
+        }
+    }
+    //méthode avancée, recursion de la fonction
+    // function fact($n){
+    //     if($n < 2){
+    //         return 1;
+    //     }
+    //     else{
+    //         return ($n*fact($n-1));
+    //     }
+    // }
+    factoriel(6);
 ?>
