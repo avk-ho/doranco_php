@@ -557,6 +557,46 @@
         }
         return $maxIndex;
     }
-    echo arrayMax($array);
+    echo arrayMax($array)."<br>";
 
+    // tableaux multidimentionnels
+    function createArrayMulti($id, $mail, $age){
+        $array = ["identifiant"=>$id, "mail"=>$mail,"age"=>$age];
+        return $array;
+    }
+    // afficherCleVal(createArrayMulti("Alexandre", "exemple@mail.fr", 20));
+    $users = [];
+    for($i = 0; $i < 5; $i++){
+        $users[$i] = createArrayMulti($i."Bob", "exemple".$i."@mail.fr", 5+5*$i);
+    }
+    // $usersLen = count($users);
+    // for($j = 0; $j < $usersLen; $j++){
+    //     afficherCleVal($users[$j]);
+    // }
+
+    //fonction de Sofiane
+    function affiche_util($tab){
+        $taille = count($tab);
+        foreach ($tab as $elt){
+            echo 'identifiant = '.$elt["identifiant"].', age = '.$elt["age"].', mail = '.$elt["mail"].'<br>';
+        }
+    }
+    
+    function modifierCle($array){
+        $x = "";
+        $y = 0;
+        $arrayTemp = [];
+        $arrayLen = count($array);
+        for($i = 0; $i < $arrayLen; $i++){
+            $x = $array[$i]["identifiant"];
+            $y = $array[$i]["age"];
+            $arrayTemp[$x.$y] = $array[$i];
+        }
+        return $arrayTemp;
+    }
+    //echo gettype(modifierCle($users));
+    foreach(modifierCle($users) as $index=>$val){
+        echo $index."<br>";
+    }
+    
 ?>
