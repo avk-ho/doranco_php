@@ -472,8 +472,91 @@
         }
         afficherArray($array);
     }
-    $tab = [1,3,4,5];
+    $tab = [2,1,7,5,4,6];
     inserer_val($color, "purple", 2, false);
     inserer_val($tab,44,3,false);
+
+    echo "<br><br>";
+
+    // trier un tableau de nombres
+    function triageNum($array){
+        $arrayLen = count($array);
+        if($arrayLen == 1){
+            // afficherArray($array);
+            return $array;
+        }
+        else{
+            for($j = 0; $j < $arrayLen; $j++){
+                for($i = 0; $i < $arrayLen-1; $i++){
+                    if($array[$i]>$array[$i+1]){
+                        $x = $array[$i];
+                        $array[$i] = $array[$i+1];
+                        $array[$i+1] = $x;
+                    }
+                }
+            }
+            // afficherArray($array);
+            return $array;
+        }
+    }
+    afficherArray(triageNum($tab));
+
+    echo "<br><br>";
+    //fonction de recherche dichotomique (recherche de moitié en moitié)
+    // function milieu($num){
+    //     $x = 0;
+    //     if($num%2 == 0){
+    //         $x = $num/2;
+    //         return $x;
+    //     }
+    //     else{
+    //         $x = ($num/2)+0.5;
+    //         return $x;
+    //     }
+    // }
+    // echo milieu(0, 3);
+    // function rechercheDicho($x, $array){
+    //     $arrayLen = count($array);
+    //     $arrayDemi = milieu($arrayLen);
+    //     $arrayTemp = [];
+    //     for($i = 0; $i < $arrayDemi; $i++){
+    //         if($array[$i] == $x){
+    //             return $i;
+    //         }  
+    //     }
+    //     for($j = $arrayDemi; $j < $arrayLen; $j++){
+    //         $n = 0;
+    //         $arrayTemp[$n] = $array[$j];
+    //         $n++;
+    //     }
+    //     return rechercheDicho($x, $arrayTemp);
+    // }
+    // $test = [1, 2, 3, 4, 5, 6, 7];
+    // echo rechercheDicho(5, $test);
+    // echo "<br><br>";
+    
+    //tableaux associatifs
+    $array = ["Un"=> 1, "Deux"=> 2, "Trois"=> 3, "Quatre"=> 4];
+    function afficherCleVal($array){
+        foreach($array as $index => $val){
+            echo "La clé ".$index." a pour valeur : ".$val.".<br>";
+        }
+    }
+    afficherCleVal($array);
+    echo "<br>";
+
+    //Ne fonctionne qu'avec des entiers naturels
+    function arrayMax($array){
+        $x = 0;
+        $maxIndex = null;
+        foreach($array as $index=>$val){
+            if($val >= $x){
+                $x = $val;
+                $maxIndex = $index;
+            }
+        }
+        return $maxIndex;
+    }
+    echo arrayMax($array);
 
 ?>
