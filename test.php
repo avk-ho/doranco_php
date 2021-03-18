@@ -376,9 +376,9 @@
     $test = 5;
     echo gettype(convertToStr($test));
     echo "<br>";
-    //- Écrivez un script PHP pour extraire le nom de fichier de la chaîne suivante. 
+    // Écrivez un script PHP pour extraire le nom de fichier de la chaîne suivante. 
     // Exemple de chaîne : 'www.example.com/public_html/index.php'
-    //Résultat attendu : 'index.php’
+    // Résultat attendu : 'index.php’
     function findFileName($str){
         $posSlash = 0;
         for($i=0;$i<strlen($str);$i++){
@@ -392,7 +392,7 @@
     findFileName('www.example.com/public_html/index.php');
 
     echo "<br>";
-    //     - Rédigez un script PHP pour extraire le nom d'utilisateur de l'ID d'e-mail suivant. Allez dans l'éditeur
+    // Rédigez un script PHP pour extraire le nom d'utilisateur de l'ID d'e-mail suivant. Allez dans l'éditeur
     // Exemple de chaîne : ' rayy@example.com '
     // Résultat attendu : 'rayy’
 
@@ -409,7 +409,7 @@
     recupUser("rayy@example.com");
 
     echo "<br><br>";
-    //- Ecrivez un script PHP pour supprimer tous les zéros non significatifs d'une chaîne. 
+    // Ecrivez un script PHP pour supprimer tous les zéros non significatifs d'une chaîne. 
     // Chaîne d'origine : '000547023.24'
     // Résultat attendu : '547023.24'
     function strip0($str){
@@ -422,5 +422,58 @@
         echo "$n";
     }
     strip0('000547023.24');
+    
+    echo "<br><br>";
+
+    $color = array("white", "green", "red");
+    function afficherArray($array){
+        $x = "";
+        $arrayLen = count($array); // plus économe
+    for($i = 0;$i<$arrayLen; $i++){
+        $x .= $array[$i]." ";
+    }
+    echo "$x<br>";
+    }
+    afficherArray($color);
+    echo "<br>";
+
+    function cherche($x, $array){
+        $arrayLen = count($array);
+        for($i = 0; $i < $arrayLen; $i++){
+            if($array[$i] == $x){
+                return "index $i : $x";
+            }
+        }
+        return -1; // ajout de Nadir
+    }
+    echo cherche("red", $color)."<br><br>";
+
+    function inserer_val($array, $x, $index, $replace){
+        $arrayLen = count($array);
+        if($replace){
+            $array[$index] = $x;
+        }
+        else{
+            for($i = $arrayLen-1; $i >= $index; $i--){
+                $array[$i+1] = $array[$i]; 
+            }
+            //semi-fonctionnel
+            // $temp = null;
+            // for($i = $index; $i < $arrayLen; $i++){
+            //     if($i != $arrayLen-1){
+            //         $temp = $array[$i+1];
+            //         $array[$i+1] = $array[$i];
+            //     }
+            //     else{
+            //         $array[$i+1] = $temp;
+            //     }
+            // }
+            $array[$index] = $x;
+        }
+        afficherArray($array);
+    }
+    $tab = [1,3,4,5];
+    inserer_val($color, "purple", 2, false);
+    inserer_val($tab,44,3,false);
 
 ?>
