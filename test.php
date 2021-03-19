@@ -598,6 +598,7 @@
     foreach(modifierCle($users) as $index=>$val){
         echo $index."<br>";
     }
+    echo "<br>";
 
     // Exercices sur les cookies
     
@@ -607,6 +608,11 @@
     }
     if(isset($_COOKIE["user_country"])){
         echo "Le pays est ".$_COOKIE["user_country"]."<br>";
+    }
+    
+    session_start();
+    if(isset($_SESSION["user_pseudo2"]) && isset($_SESSION["user_country2"])){
+        echo "Le pseudo2 est ".$_SESSION["user_pseudo2"]."<br>"."Le pays2 est ".$_SESSION["user_country2"]."<br>";
     }
 
 ?>
