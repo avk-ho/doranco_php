@@ -10,7 +10,8 @@
             }
         }        
         else{
-            echo "Vous n'êtes pas connecté, veuillez vous connecter.";
+            echo "Vous n'êtes pas connecté, veuillez vous connecter.<br>";
+            echo '<a href="connexion.php">Se connecter</a>';
         }
     ?>
 </html>

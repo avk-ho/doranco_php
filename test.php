@@ -615,4 +615,19 @@
         echo "Le pseudo2 est ".$_SESSION["user_pseudo2"]."<br>"."Le pays2 est ".$_SESSION["user_country2"]."<br>";
     }
 
+    //Test DB
+    
+    // $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+    
+    // comme la ligne précédente, mais envoie une erreur en cas d'échec
+    try{
+    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+    }
+    catch (Exception $e){
+        die('Erreur : ' . $e->getMessage());
+    }
+
+
+
+
 ?>
