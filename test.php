@@ -323,12 +323,12 @@
     $a = 3;
     $b = 1;
     coefBinom($a, $b);
-    function triPasc($x){
-        for($i = 1; $i <= $x; $i++){
+    // function triPasc($x){
+    //     for($i = 1; $i <= $x; $i++){
             
             
-        }
-    }
+    //     }
+    // }
 
     //Pour faire un triangle de Pascal par Nadir
     // function facto($number) { 
@@ -598,5 +598,15 @@
     foreach(modifierCle($users) as $index=>$val){
         echo $index."<br>";
     }
+
+    // Exercices sur les cookies
     
+    //cookies définis dans cookie.php
+    if(isset($_COOKIE["user_pseudo"])){
+        echo "Le pseudo est ".$_COOKIE["user_pseudo"]."<br>";
+    }
+    if(isset($_COOKIE["user_country"])){
+        echo "Le pays est ".$_COOKIE["user_country"]."<br>";
+    }
+
 ?>
