@@ -620,14 +620,11 @@
     // $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
     
     // comme la ligne précédente, mais envoie une erreur en cas d'échec
-    try{
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
-    }
-    catch (Exception $e){
-        die('Erreur : ' . $e->getMessage());
-    }
-
-
-
+//     try{
+//     $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+//     }
+//     catch (Exception $e){
+//         die('Erreur : ' . $e->getMessage());
+//     }
 
 ?>
